@@ -43,7 +43,7 @@ sourceSets {
 processResources {
 	dependsOn "copyReactBuildFiles"
 }
-
+/*
 task installReact(type: Exec) {
 	workingDir "$frontendDir"
 	inputs.dir "$frontendDir"
@@ -68,9 +68,9 @@ task buildReact(type: Exec) {
 		commandLine "npm", "run-script", "build"
 	}
 }
-
+*/
 task copyReactBuildFiles(type: Copy) {
-	dependsOn "buildReact"
+	//dependsOn "buildReact"
 	from "$frontendDir/build"
 	into "$projectDir/src/main/resources/static"
 }
