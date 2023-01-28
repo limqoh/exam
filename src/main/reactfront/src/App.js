@@ -23,7 +23,9 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h4> 실시간 뉴스 크롤링 </h4>
-        { listItem }
+        <div style={{textAlign: "left"}}>
+            { listItem }
+        </div>
       </header>
     </div>
   );
