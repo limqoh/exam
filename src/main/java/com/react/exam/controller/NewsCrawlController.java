@@ -28,7 +28,20 @@ public class NewsCrawlController {
         String dateTime = dateFormat.format(new Date());
         System.out.println(dateTime);
 
-        List<Map<String, Object>> result = ncService.crawling(dateTime, 1);
+        List<Map<String, Object>> result = ncService.crawling(dateTime, 5);
+
+        return result;
+    }
+
+    @GetMapping("/nAnalyzeText")
+    public List<Map<String, Object>> nAnalyzeText() throws IOException {
+
+        DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
+        String dateTime = dateFormat.format(new Date());
+        System.out.println(dateTime);
+
+        List<Map<String, Object>> resultData = ncService.crawling(dateTime, 5);
+        List<Map<String, Object>> result = ncService.analyzeText(resultData);
 
         return result;
     }
