@@ -28,7 +28,7 @@ public class NewsCrawlController {
         String dateTime = dateFormat.format(new Date());
         System.out.println(dateTime);
 
-        List<Map<String, Object>> result = ncService.crawling(dateTime, 2);
+        List<Map<String, Object>> result = ncService.crawling(dateTime, 1);
 
         return result;
     }

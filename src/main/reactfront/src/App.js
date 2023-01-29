@@ -17,7 +17,7 @@ function App() {
       });
   }, [])
 
-  const listItem = result.map(result => <li style={{ fontSize: "12px"}}> { result.title } -  [{ result.writing } : { result.inputTime }] </li> );
+  const listItem = result.map(result => <li style={{ fontSize: "12px", listStyle: "circle"}}> { result.title } <span style={{display: "block"}}> 　[{ result.writing } : { result.inputTime }] </span> </li> );
 
   return (
     <div className="App">
