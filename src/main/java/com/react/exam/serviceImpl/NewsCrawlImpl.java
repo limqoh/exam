@@ -29,7 +29,6 @@ public class NewsCrawlImpl implements NewsCrawlService {
             Element element = elements.get(0);
             Elements photoElements = element.getElementsByAttributeValue("class", "photo");
             Elements writingElements = element.getElementsByAttributeValue("class", "writing");
-            Elements timeElements = element.getElementsByAttributeValue("class", "date is_outdated");
 
 
             System.out.println("========== "+i+" page - 크롤링 시작 ==========");
@@ -47,17 +46,20 @@ public class NewsCrawlImpl implements NewsCrawlService {
                 Element contentElement = subDoc.getElementById("dic_area");
                 String content = contentElement.text();
 
+                Elements inputTimeElement = subDoc.getElementsByAttributeValue("class", "media_end_head_info_datestamp_time _ARTICLE_DATE_TIME");
+                String inputTime = inputTimeElement.get(0).text();
+
                 //System.out.println(title);
                 //System.out.println(content);
-
-                String writing = writingElements.get(j).text();
-                String agoTime = timeElements.get(j).text();
 
                 Map<String, Object> resultMap = new HashMap<>();
                 resultMap.put("title", title);
                 resultMap.put("content", content);
+
+                String writing = writingElements.get(j).text();
                 resultMap.put("writing", writing);
-                resultMap.put("agoTime", agoTime);
+
+                resultMap.put("inputTime", inputTime);
                 result.add(resultMap);
             }
             System.out.println("");

@@ -5,7 +5,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -21,7 +24,11 @@ public class NewsCrawlController {
     @GetMapping("/nCrawling")
     public List<Map<String, Object>> nCrawling() throws IOException {
 
-        List<Map<String, Object>> result = ncService.crawling("20230128", 1);
+        DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
+        String dateTime = dateFormat.format(new Date());
+        System.out.println(dateTime);
+
+        List<Map<String, Object>> result = ncService.crawling(dateTime, 2);
 
         return result;
     }

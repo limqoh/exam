@@ -17,7 +17,7 @@ function App() {
       });
   }, [])
 
-  const listItem = result.map(result => <li style={{ fontSize: "12px"}}> { result.title } -  [{ result.writing } : { result.agoTime }] </li> );
+  const listItem = result.map(result => <li style={{ fontSize: "12px"}}> { result.title } -  [{ result.writing } : { result.inputTime }] </li> );
 
   return (
     <div className="App">
